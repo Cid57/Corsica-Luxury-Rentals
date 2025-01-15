@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '/Corsica-Luxury-Rentals',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
