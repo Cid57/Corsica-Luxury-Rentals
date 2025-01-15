@@ -1,0 +1,200 @@
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 580px;
+}
+
+.custom-calendar {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.react-datepicker {
+  display: flex !important;
+  gap: 2rem !important;
+  padding: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Style des mois */
+.react-datepicker__month-container {
+  float: none !important;
+  margin: 0;
+  width: 100%;
+  max-width: 320px;
+  background-color: rgba(184, 134, 11, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Style des jours de la semaine */
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.react-datepicker__day-name {
+  color: #6b7280;
+  font-weight: 500;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+/* Style des jours */
+.react-datepicker__month {
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.react-datepicker__day {
+  color: #374151;
+  border-radius: 0.375rem;
+  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.875rem;
+}
+
+/* Style du jour actuel */
+.react-datepicker__day--today {
+  font-weight: bold;
+  color: #B8860B;
+}
+
+/* Style des jours sélectionnés */
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+  background-color: #B8860B !important;
+  color: white !important;
+}
+
+/* Style du hover sur les jours */
+.react-datepicker__day:hover:not(.react-datepicker__day--selected):not(.react-datepicker__day--in-range) {
+  background-color: rgba(184, 134, 11, 0.15) !important;
+  color: #B8860B !important;
+}
+
+/* Style des jours en dehors du mois */
+.react-datepicker__day--outside-month {
+  color: #9ca3af;
+}
+
+/* Style de l'en-tête du calendrier */
+.react-datepicker__header {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+/* Style du mois et de l'année */
+.react-datepicker__current-month {
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+/* Style de la plage de dates */
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--range-start):not(.react-datepicker__day--range-end),
+.react-datepicker__day--in-range:not(.react-datepicker__day--range-start):not(.react-datepicker__day--range-end) {
+  background-color: rgba(184, 134, 11, 0.2) !important;
+  color: #B8860B !important;
+}
+
+/* Style du jour de début et de fin de la plage */
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end,
+.react-datepicker__day--selected {
+  background-color: #B8860B !important;
+  color: white !important;
+}
+
+/* Style des boutons de navigation */
+.react-datepicker__navigation {
+  top: 1rem;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #B8860B;
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: #8B6508;
+}
+
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #B8A049;
+  --rdp-background-color: #fff;
+  /* Switch to dark colors for dark themes */
+  --rdp-accent-color-dark: #B8A049;
+  --rdp-background-color-dark: rgba(255, 255, 255, 0.05);
+  /* Outline border for focused elements */
+  --rdp-outline: none;
+  /* Outline border for focused and selected elements */
+  --rdp-outline-selected: none;
+  --rdp-selected-color: #fff;
+}
+
+.rdp-caption {
+  padding: 0 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rdp-head_cell {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.rdp-cell {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rdp-day_disabled {
+  color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.rdp-day_selected {
+  color: white !important;
+  font-weight: 500;
+}
+
+.rdp-day_range_start, 
+.rdp-day_range_end {
+  color: white !important;
+  font-weight: 500;
+}
+
+.rdp-day_range_middle {
+  color: white !important;
+  font-weight: 500;
+  background-color: rgba(184, 160, 73, 0.2);
+}
+
+.selected-range-text {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}

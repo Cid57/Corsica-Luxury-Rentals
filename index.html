@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corsica Luxury Rentals - Locations de Prestige en Corse</title>
+    <meta name="description" content="Découvrez nos villas de luxe en Corse. Location de propriétés d'exception avec services premium pour des vacances inoubliables.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Corsica Luxury Rentals</h1>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#properties">Nos Villas</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">Bienvenue en Corse</span>
+            <h1>Vivez l'Excellence à l'État Pur</h1>
+            <p>Des villas d'exception sélectionnées avec soin pour des séjours inoubliables sur l'Île de Beauté</p>
+            <div class="hero-buttons">
+                <a href="#properties" class="cta-button">Découvrir nos villas</a>
+                <a href="#contact" class="cta-button-outline">Nous contacter</a>
+            </div>
+        </div>
+        <div class="hero-search">
+            <form class="search-form">
+                <div class="search-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select name="destination">
+                        <option value="">Destination</option>
+                        <option value="porto-vecchio">Porto-Vecchio</option>
+                        <option value="bonifacio">Bonifacio</option>
+                        <option value="ajaccio">Ajaccio</option>
+                        <option value="calvi">Calvi</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-calendar"></i>
+                    <input type="date" name="check-in" placeholder="Arrivée">
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-calendar"></i>
+                    <input type="date" name="check-out" placeholder="Départ">
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-users"></i>
+                    <select name="guests">
+                        <option value="">Voyageurs</option>
+                        <option value="2">1-2 personnes</option>
+                        <option value="4">3-4 personnes</option>
+                        <option value="6">5-6 personnes</option>
+                        <option value="8">7-8 personnes</option>
+                        <option value="10">9+ personnes</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-button">Rechercher</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <span class="section-subtitle">Notre Histoire</span>
+                <h2>L'Excellence au Service de Votre Séjour</h2>
+                <p>Depuis plus de 15 ans, Corsica Luxury Rentals sélectionne pour vous les plus belles propriétés de Corse. Notre expertise et notre connaissance approfondie de l'île nous permettent de vous offrir une expérience unique et personnalisée.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Villas sélectionnées avec soin</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Service conciergerie 24/7</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Équipe locale disponible</span>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-text">Années d'expérience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-text">Clients satisfaits</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-text">Villas de luxe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="images/team.jpg" alt="Notre équipe">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-header">
+            <span class="section-subtitle">Nos Services</span>
+            <h2>Des Prestations Sur-Mesure</h2>
+            <p>Découvrez nos services exclusifs pour un séjour d'exception</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h3>Conciergerie Privée</h3>
+                <p>Service personnalisé 24/7 pour répondre à toutes vos demandes pendant votre séjour</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Chef à Domicile</h3>
+                <p>Découvrez la gastronomie corse avec nos chefs étoilés qui cuisinent dans votre villa</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Transport Privé</h3>
+                <p>Service de chauffeur privé et location de véhicules de luxe avec ou sans chauffeur</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ship"></i>
+                </div>
+                <h3>Location de Yachts</h3>
+                <p>Explorez les plus belles criques de Corse à bord de nos yachts de luxe</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Spa & Bien-être</h3>
+                <p>Massages et soins spa directement dans le confort de votre villa</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Conciergerie Events</h3>
+                <p>Organisation d'événements sur-mesure : anniversaires, mariages, séminaires</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="properties" class="featured-properties">
+        <div class="section-header">
+            <span class="section-subtitle">Nos Plus Belles Villas</span>
+            <h2>Propriétés d'Exception</h2>
+            <p>Découvrez notre sélection de villas de luxe pour des séjours inoubliables</p>
+        </div>
+        <div class="properties-grid">
+            <div class="property-card animate-on-scroll">
+                <div class="property-image">
+                    <img src="images/villa1.jpg" alt="Villa de luxe avec vue mer">
+                    <div class="property-type">Premium</div>
+                </div>
+                <div class="property-info">
+                    <h3>Villa Azure - Porto-Vecchio</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> Porto-Vecchio, Corse du Sud</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 5 chambres</span>
+                        <span><i class="fas fa-bath"></i> 4 salles de bain</span>
+                        <span><i class="fas fa-users"></i> 10 personnes</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span><i class="fas fa-infinity"></i> Piscine à débordement</span>
+                        <span><i class="fas fa-umbrella-beach"></i> Accès plage privé</span>
+                        <span><i class="fas fa-car"></i> Garage 3 voitures</span>
+                    </div>
+                    <p class="property-description">Magnifique villa contemporaine avec vue panoramique sur le golfe de Porto-Vecchio, piscine à débordement et accès privé à la plage.</p>
+                    <div class="property-footer">
+                        <span class="price">À partir de 1500€/nuit</span>
+                        <button class="learn-more">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card animate-on-scroll">
+                <div class="property-image">
+                    <img src="images/villa2.jpg" alt="Villa de luxe avec piscine">
+                    <div class="property-type">Luxe</div>
+                </div>
+                <div class="property-info">
+                    <h3>Villa Bella Vista - Calvi</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> Calvi, Haute-Corse</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 4 chambres</span>
+                        <span><i class="fas fa-bath"></i> 3 salles de bain</span>
+                        <span><i class="fas fa-users"></i> 8 personnes</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span><i class="fas fa-swimming-pool"></i> Piscine chauffée</span>
+                        <span><i class="fas fa-mountain"></i> Vue montagne</span>
+                        <span><i class="fas fa-wifi"></i> WiFi haut débit</span>
+                    </div>
+                    <p class="property-description">Superbe villa avec vue imprenable sur la baie de Calvi, piscine chauffée et jardin méditerranéen luxuriant.</p>
+                    <div class="property-footer">
+                        <span class="price">À partir de 1200€/nuit</span>
+                        <button class="learn-more">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card animate-on-scroll">
+                <div class="property-image">
+                    <img src="images/villa3.jpg" alt="Villa de luxe vue mer">
+                    <div class="property-type">Prestige</div>
+                </div>
+                <div class="property-info">
+                    <h3>Villa Paradisu - Bonifacio</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> Bonifacio, Corse du Sud</p>
+                    <div class="property-features">
+                        <span><i class="fas fa-bed"></i> 6 chambres</span>
+                        <span><i class="fas fa-bath"></i> 5 salles de bain</span>
+                        <span><i class="fas fa-users"></i> 12 personnes</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span><i class="fas fa-infinity"></i> Piscine infinie</span>
+                        <span><i class="fas fa-spa"></i> Spa privé</span>
+                        <span><i class="fas fa-tennis-ball"></i> Court de tennis</span>
+                    </div>
+                    <p class="property-description">Villa d'exception surplombant les falaises de Bonifacio, avec piscine à débordement, spa et court de tennis privé.</p>
+                    <div class="property-footer">
+                        <span class="price">À partir de 2000€/nuit</span>
+                        <button class="learn-more">En savoir plus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations">
+        <div class="destinations-header">
+            <span class="section-subtitle">Destinations</span>
+            <h2>Les Plus Belles Régions de Corse</h2>
+            <p>Explorez nos destinations de rêve et trouvez votre prochain lieu de séjour</p>
+        </div>
+        <div class="destinations-grid">
+            <div class="destination-card" style="background-image: url('images/porto-vecchio-1.jpg')">
+                <div class="destination-content">
+                    <h3>Porto-Vecchio</h3>
+                    <p>Le Saint-Tropez corse</p>
+                    <a href="#properties" class="destination-link">Découvrir</a>
+                </div>
+            </div>
+            <div class="destination-card" style="background-image: url('images/bonifacio-1.jpg')">
+                <div class="destination-content">
+                    <h3>Bonifacio</h3>
+                    <p>La cité médiévale</p>
+                    <a href="#properties" class="destination-link">Découvrir</a>
+                </div>
+            </div>
+            <div class="destination-card" style="background-image: url('images/Saint-florent.jpg')">
+                <div class="destination-content">
+                    <h3>Saint-Florent</h3>
+                    <p>Le charme authentique</p>
+                    <a href="#properties" class="destination-link">Découvrir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-header">
+            <span class="section-subtitle">Témoignages</span>
+            <h2>Ce Que Disent Nos Clients</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="images/person-1.jpg" alt="Client testimonial">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Un séjour inoubliable dans une villa magnifique. Le service de conciergerie était exceptionnel, toujours disponible pour nous conseiller."</p>
+                    <h4>Sophie et Pierre M.</h4>
+                    <span>Séjour à Porto-Vecchio</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="images/person-2.jpg" alt="Client testimonial">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"La villa était encore plus belle que sur les photos. Vue imprenable sur la mer, prestations haut de gamme, et un service irréprochable."</p>
+                    <h4>Jean-Marc L.</h4>
+                    <span>Séjour à Bonifacio</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-image">
+                    <img src="images/person-3.jpg" alt="Client testimonial">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Une expérience exceptionnelle. L'équipe a su répondre à toutes nos attentes et même au-delà. Nous reviendrons sans hésiter."</p>
+                    <h4>Marie et Thomas D.</h4>
+                    <span>Séjour à Saint-Florent</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location-saisonniere" class="location-saisonniere">
+        <div class="location-saisonniere-header">
+            <span class="section-subtitle">Location Saisonnière</span>
+            <h2>Nos Villas de Luxe pour la Saison</h2>
+            <p>Découvrez nos villas de luxe pour la location saisonnière en Corse</p>
+        </div>
+        <div class="location-saisonniere-grid">
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/villa-vue-mer.jpg" alt="Villa Vue Mer à Porto-Vecchio">
+                    <div class="location-badge">LOCATION SAISONNIÈRE</div>
+                </div>
+                <div class="location-info">
+                    <h3 class="location-title">Villa Vue Mer à Porto-Vecchio</h3>
+                    <div class="location-details">
+                        <span><i class="fas fa-map-marker-alt"></i> Porto-vecchio, Corse du Sud</span>
+                        <span><i class="fas fa-expand"></i> 250m²</span>
+                    </div>
+                    <div class="location-footer-left">
+                        <span class="price">5,000 €/semaine</span>
+                        <a href="#" class="location-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/villa-marina.jpg" alt="Villa Marina Luxe">
+                    <div class="location-badge">LOCATION SAISONNIÈRE</div>
+                </div>
+                <div class="location-info">
+                    <h3 class="location-title">Villa Marina Luxe</h3>
+                    <div class="location-details">
+                        <span><i class="fas fa-map-marker-alt"></i> Bonifacio, Corse du Sud</span>
+                        <span><i class="fas fa-expand"></i> 300m²</span>
+                    </div>
+                    <div class="location-footer-left">
+                        <span class="price">7,500 €/semaine</span>
+                        <a href="#" class="location-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-image">
+                    <img src="images/villa-bonifacio.jpg" alt="Villa Bonifacio Heights">
+                    <div class="location-badge">LOCATION SAISONNIÈRE</div>
+                </div>
+                <div class="location-info">
+                    <h3 class="location-title">Villa Bonifacio Heights</h3>
+                    <div class="location-details">
+                        <span><i class="fas fa-map-marker-alt"></i> Bonifacio, Corse du Sud</span>
+                        <span><i class="fas fa-expand"></i> 200m²</span>
+                    </div>
+                    <div class="location-footer-left">
+                        <span class="price">6,000 €/semaine</span>
+                        <a href="#" class="location-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-header">
+            <span class="section-subtitle">Contact</span>
+            <h2>Réservez Votre Villa de Rêve</h2>
+            <p>Notre équipe est à votre disposition pour vous aider à organiser votre séjour parfait</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Nos Coordonnées</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Notre Agence</h4>
+                        <p>Port de Plaisance<br>Porto-Vecchio, 20137<br>Corse, France</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+33 4 95 XX XX XX</p>
+                        <p>+33 6 XX XX XX XX</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>contact@corsicaluxury.fr</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Lundi - Samedi: 9h-19h<br>Dimanche: Sur rendez-vous</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Téléphone" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Sélectionnez une destination</option>
+                        <option value="porto-vecchio">Porto-Vecchio</option>
+                        <option value="bonifacio">Bonifacio</option>
+                        <option value="saint-florent">Saint-Florent</option>
+                        <option value="ajaccio">Ajaccio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Envoyer votre demande</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="SingerRooms Logo">
+                </div>
+                <p class="footer-description">
+                    Découvrez l'excellence du luxe avec SingerRooms. Des villas d'exception pour des séjours inoubliables en Corse.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#properties">Nos Villas</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Nos Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Conciergerie de luxe</a></li>
+                    <li><a href="#">Service de chef privé</a></li>
+                    <li><a href="#">Transport VIP</a></li>
+                    <li><a href="#">Activités sur mesure</a></li>
+                    <li><a href="#">Événements privés</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Avenue des Pins<br>20137 Porto-Vecchio, France</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+33 (0)4 95 12 34 56</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@singerrooms.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 SingerRooms. Tous droits réservés.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="propertyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-main-image">
+                    <img src="" alt="Property Image">
+                </div>
+                <div class="modal-thumbnails">
+                    <!-- Thumbnails will be added here dynamically -->
+                </div>
+                <div class="modal-info">
+                    <p class="modal-description"></p>
+                    <div class="modal-amenities">
+                        <!-- Amenities will be added here dynamically -->
+                    </div>
+                    <div class="modal-price-section">
+                        <span class="modal-price"></span>
+                        <a href="#contact" class="cta-button">Réserver maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
