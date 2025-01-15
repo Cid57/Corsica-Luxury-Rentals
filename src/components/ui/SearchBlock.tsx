@@ -75,12 +75,17 @@ export default function SearchBlock() {
     router.push(`/villas/search?${searchParams.toString()}`);
   };
 
-  const handleDateChange = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-    if (start && end) {
-      setShowCalendar(false);
+  const handleDateChange = (dates: Date | null) => {
+    if (dates) {
+      if (!startDate) {
+        setStartDate(dates);
+      } else if (!endDate || dates < startDate) {
+        setStartDate(dates);
+        setEndDate(null);
+      } else {
+        setEndDate(dates);
+        setShowCalendar(false);
+      }
     }
   };
 
@@ -155,7 +160,7 @@ export default function SearchBlock() {
                 <div className="absolute z-20 mt-2 bg-gray-900/95 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl p-4">
                   <Calendar
                     selected={startDate}
-                    onChange={(dates) => handleDateChange(dates as [Date | null, Date | null])}
+                    onChange={handleDateChange}
                     startDate={startDate}
                     endDate={endDate}
                     selectsRange
