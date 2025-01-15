@@ -4,16 +4,11 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import HomeCalendar from './HomeCalendar';
 import GuestCounter from './GuestCounter';
-import { FaUser, FaMapMarkerAlt, FaPaw } from 'react-icons/fa';
+import { FaUser, FaMapMarkerAlt, FaPaw, FaSearch } from 'react-icons/fa';
 import { fr } from 'date-fns/locale';
 import { VILLES_CORSE } from '@/data/villes';
 import './home-calendar.css';
 import { DateRange } from 'react-day-picker';
-
-interface DateRange {
-  from: Date | null;
-  to: Date | null;
-}
 
 const LocationDropdown = ({ onSelect }: { onSelect: (ville: typeof VILLES_CORSE[0]) => void }) => {
   return (
@@ -100,57 +95,68 @@ export default function SearchBar() {
                 onSelect={setDates}
               />
             </div>
+
+            {/* Bottom row */}
+            <div className="flex gap-4">
+              {/* Guests counter */}
+              <div className="flex-1 relative">
+                <button
+                  onClick={() => setShowGuestCounter(!showGuestCounter)}
+                  className="w-full flex items-center gap-3 px-6 py-4 bg-white/5 hover:bg-white/10 rounded-2xl cursor-pointer transition-colors"
+                >
+                  <FaUser className="text-white/80 text-xl" />
+                  <div>
+                    <div className="text-white/80 font-medium mb-1">Voyageurs</div>
+                    <div className="text-white text-lg">
+                      {guests} {guests > 1 ? 'personnes' : 'personne'}
+                    </div>
+                  </div>
+                </button>
+                {showGuestCounter && (
+                  <div className="absolute z-20 w-full mt-2 bg-gray-900/95 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl p-4">
+                    <GuestCounter
+                      value={guests}
+                      onChange={(value) => {
+                        setGuests(value);
+                        setShowGuestCounter(false);
+                      }}
+                      min={1}
+                      max={20}
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Pets toggle */}
+              <button
+                onClick={() => setHasPets(!hasPets)}
+                className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all ${
+                  hasPets
+                    ? 'bg-luxury-gold text-white hover:bg-luxury-gold/90'
+                    : 'bg-white/5 text-white hover:bg-white/10'
+                }`}
+              >
+                <FaPaw className={`text-xl ${hasPets ? 'text-white' : 'text-white/80'}`} />
+                <div>
+                  <div className={`font-medium mb-1 ${hasPets ? 'text-white' : 'text-white/80'}`}>
+                    Animaux
+                  </div>
+                  <div className="text-lg">
+                    {hasPets ? 'Acceptés' : 'Non acceptés'}
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
 
           {/* Colonne droite */}
-          <div className="flex flex-col gap-6">
-            {/* Voyageurs */}
-            <div className="relative">
-              <div
-                onClick={() => setShowGuestCounter(true)}
-                className="flex items-center gap-3 px-6 py-4 bg-white/5 hover:bg-white/10 rounded-2xl cursor-pointer transition-colors"
-              >
-                <FaUser className="text-white/80 text-xl" />
-                <div>
-                  <div className="text-white/80 font-medium mb-1">Voyageurs</div>
-                  <div className="text-white text-lg">
-                    {guests} voyageur{guests > 1 ? 's' : ''}
-                  </div>
-                </div>
-              </div>
-              {showGuestCounter && (
-                <div className="absolute right-0 mt-2 p-4 bg-gray-900/95 backdrop-blur-sm rounded-xl shadow-xl">
-                  <GuestCounter
-                    value={guests}
-                    onChange={setGuests}
-                    min={1}
-                    max={20}
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* Animaux */}
-            <button
-              onClick={() => setHasPets(!hasPets)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-2xl transition-all ${
-                hasPets 
-                  ? 'bg-luxury-gold text-white' 
-                  : 'bg-white/5 hover:bg-white/10 text-white'
-              }`}
-            >
-              <FaPaw className={`text-lg ${hasPets ? 'text-white' : 'text-white/80'}`} />
-              <span className="font-medium">
-                {hasPets ? 'Avec animaux' : 'Avez-vous des animaux ?'}
-              </span>
-            </button>
-
-            {/* Bouton de recherche */}
+          <div className="flex items-end">
             <button
               onClick={handleSearch}
-              className="w-full py-4 bg-luxury-gold text-white rounded-2xl hover:bg-luxury-gold/90 transition-colors font-medium text-lg"
+              className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-luxury-gold hover:bg-luxury-gold/90 text-white rounded-2xl transition-colors text-lg"
             >
-              Rechercher
+              <FaSearch />
+              <span>Rechercher</span>
             </button>
           </div>
         </div>
