@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero section avec image */}
-      <section className="relative min-h-screen pt-24">
+      <section className="relative h-[80vh]">
         {/* Image de fond */}
         <div className="absolute inset-0">
           <Image
@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
 
         {/* Contenu */}
-        <div className="relative h-[70vh] flex flex-col items-center justify-center">
+        <div className="relative h-full flex flex-col items-center justify-center">
           <div className="container mx-auto px-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -45,11 +45,24 @@ export default function Hero() {
             </motion.div>
           </div>
         </div>
+      </section>
 
-        {/* Section de recherche */}
-        <div className="relative bg-black/40 backdrop-blur-sm py-12 px-4">
-          <div className="container mx-auto max-w-5xl">
-            <SearchBar />
+      {/* Section de recherche */}
+      <section className="bg-gradient-to-br from-[#2B4562] via-[#2B4562] to-gray-600 py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8 mb-12">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-8">
+              Trouvez la Villa de vos Rêves
+            </h1>
+            <p className="text-xl text-gray-300">
+              Découvrez notre sélection exclusive de villas de luxe en Corse
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8">
+              <SearchBar />
+            </div>
           </div>
         </div>
       </section>
