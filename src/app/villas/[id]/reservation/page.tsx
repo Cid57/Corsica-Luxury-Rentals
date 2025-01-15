@@ -26,7 +26,7 @@ export default function Page({ params }: PageProps) {
     notFound();
   }
 
-  const defaultImage = '/images/default-villa.jpg'; 
+  const defaultImage = '/Corsica-Luxury-Rentals/images/default-villa.jpg'; 
   const villaImage = villa.images && villa.images.length > 0 ? villa.images[0] : defaultImage;
 
   return (
