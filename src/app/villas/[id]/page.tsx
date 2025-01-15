@@ -24,6 +24,12 @@ import ImageGallery from '@/components/villa/ImageGallery';
 import StayConfigurator from '@/components/villa/StayConfigurator';
 import Link from 'next/link';
 
+export async function generateStaticParams() {
+  return villas.map((villa) => ({
+    id: villa.id,
+  }));
+}
+
 export default function VillaDetail() {
   const params = useParams();
   const router = useRouter();
