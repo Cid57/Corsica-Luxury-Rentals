@@ -3,11 +3,9 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { FaBed, FaBath, FaUsers } from 'react-icons/fa';
 import { BsWifi, BsHouseDoor } from 'react-icons/bs';
-import { TbPool } from 'react-icons/tb';
-import { MdPets, MdOutlineCleaningServices } from 'react-icons/md';
-import { motion } from 'framer-motion';
 import ReservationNavigation from '@/components/villa/ReservationNavigation';
 import BookingFormWrapper from '@/components/villa/BookingFormWrapper';
+import AmenitiesList from '@/components/villa/AmenitiesList';
 
 interface PageProps {
   params: {
@@ -82,23 +80,7 @@ export default function Page({ params }: PageProps) {
             {/* Équipements */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold mb-4">Équipements</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {villa.amenities.map((amenity, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    {amenity === 'WiFi' && <BsWifi className="w-5 h-5 text-gray-600" />}
-                    {amenity === 'Piscine' && <TbPool className="w-5 h-5 text-gray-600" />}
-                    {amenity === 'Animaux acceptés' && <MdPets className="w-5 h-5 text-gray-600" />}
-                    {amenity === 'Service de ménage' && <MdOutlineCleaningServices className="w-5 h-5 text-gray-600" />}
-                    <span>{amenity}</span>
-                  </motion.div>
-                ))}
-              </div>
+              <AmenitiesList amenities={villa.amenities} />
             </div>
 
             {/* Description */}
