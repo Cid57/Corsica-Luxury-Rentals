@@ -34,20 +34,20 @@ export default function AvailabilityCalendar({
   return (
     <div className={cn("w-full", className)}>
       <Calendar
-        selected={date?.from}
-        onChange={(newDate) => {
+        selected={date?.from || null}
+        onChange={(newDate: Date | null) => {
           if (newDate) {
-            const range = {
+            const range: DateRange = {
               from: newDate,
-              to: date?.to
+              to: date?.to || undefined
             };
             setDate(range);
             onDateSelect(range);
           }
         }}
         minDate={today}
-        startDate={date?.from}
-        endDate={date?.to}
+        startDate={date?.from || null}
+        endDate={date?.to || null}
         selectsRange
         inline
       />
