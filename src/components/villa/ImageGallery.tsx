@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaTimes, FaExpand } from 'react-icons/fa';
+import { getImagePath } from '@/utils/imagePath';
 
 interface ImageGalleryProps {
   images: string[];
@@ -31,7 +32,7 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
       {/* Image principale */}
       <div className="relative h-[600px] rounded-2xl overflow-hidden group">
         <Image
-          src={images[currentImageIndex]}
+          src={getImagePath(images[currentImageIndex])}
           alt={`${villaName} - Image principale`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
@@ -71,7 +72,7 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
             }`}
           >
             <Image
-              src={image}
+              src={getImagePath(image)}
               alt={`${villaName} - Image ${index + 1}`}
               fill
               sizes="(max-width: 768px) 25vw, (max-width: 1200px) 20vw, 15vw"
@@ -110,7 +111,7 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
             </button>
             <div className="relative w-full h-full max-w-7xl max-h-[90vh] m-4">
               <Image
-                src={images[currentImageIndex]}
+                src={getImagePath(images[currentImageIndex])}
                 alt={`${villaName} - Image ${currentImageIndex + 1}`}
                 fill
                 sizes="100vw"

@@ -8,8 +8,8 @@ export const villas: Villa[] = [
     description: "Villa de charme située dans la vieille ville de Bonifacio avec vue imprenable sur les falaises.",
     pricePerNight: 950,
     images: [
-      "/Corsica-Luxury-Rentals/images/bonifacio-1.jpg",
-      "/Corsica-Luxury-Rentals/images/house-1.jpg"
+      "/images/bonifacio-1.jpg",
+      "/images/house-1.jpg"
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -25,8 +25,8 @@ export const villas: Villa[] = [
     description: "Magnifique villa contemporaine avec accès direct à la plage de Santa Giulia.",
     pricePerNight: 1200,
     images: [
-      "/Corsica-Luxury-Rentals/images/porto-vecchio-1.jpg",
-      "/Corsica-Luxury-Rentals/images/porto-vecchio-2.jpg"
+      "/images/porto-vecchio-1.jpg",
+      "/images/porto-vecchio-2.jpg"
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -42,8 +42,8 @@ export const villas: Villa[] = [
     description: "Villa d'exception nichée dans les hauteurs de Bonifacio avec vue panoramique sur la mer.",
     pricePerNight: 1100,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-1.jpg",
-      "/Corsica-Luxury-Rentals/images/house-2.jpg"
+      "/images/house-1.jpg",
+      "/images/house-2.jpg"
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -59,8 +59,8 @@ export const villas: Villa[] = [
     description: "Villa moderne avec piscine chauffée, située à quelques minutes des plus belles plages.",
     pricePerNight: 850,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-2.jpg",
-      "/Corsica-Luxury-Rentals/images/house-3.jpg"
+      "/images/house-2.jpg",
+      "/images/house-3.jpg"
     ],
     bedrooms: 2,
     bathrooms: 2,
@@ -76,8 +76,8 @@ export const villas: Villa[] = [
     description: "Élégante villa avec vue sur le port de plaisance de Bonifacio.",
     pricePerNight: 980,
     images: [
-      "/Corsica-Luxury-Rentals/images/marina.jpg",
-      "/Corsica-Luxury-Rentals/images/house-1.jpg"
+      "/images/marina.jpg",
+      "/images/house-1.jpg"
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -93,8 +93,8 @@ export const villas: Villa[] = [
     description: "Villa de luxe face à la baie de Calvi avec vue imprenable sur la citadelle.",
     pricePerNight: 1300,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-1.jpg",
-      "/Corsica-Luxury-Rentals/images/house-2.jpg"
+      "/images/house-1.jpg",
+      "/images/house-2.jpg"
     ],
     bedrooms: 5,
     bathrooms: 4,
@@ -110,8 +110,8 @@ export const villas: Villa[] = [
     description: "Charmante villa avec vue sur le golfe de Saint-Florent et les vignobles du Patrimonio.",
     pricePerNight: 890,
     images: [
-      "/Corsica-Luxury-Rentals/images/Saint-florent.jpg",
-      "/Corsica-Luxury-Rentals/images/house-3.jpg"
+      "/images/Saint-florent.jpg",
+      "/images/house-3.jpg"
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -127,8 +127,8 @@ export const villas: Villa[] = [
     description: "Villa de prestige située dans un domaine privé, à proximité de la plage de Palombaggia.",
     pricePerNight: 1400,
     images: [
-      "/Corsica-Luxury-Rentals/images/porto-vecchio-2.jpg",
-      "/Corsica-Luxury-Rentals/images/house-1.jpg"
+      "/images/porto-vecchio-2.jpg",
+      "/images/house-1.jpg"
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -144,8 +144,8 @@ export const villas: Villa[] = [
     description: "Somptueuse villa avec vue panoramique sur le golfe d'Ajaccio et les îles Sanguinaires.",
     pricePerNight: 1600,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-1.jpg",
-      "/Corsica-Luxury-Rentals/images/house-2.jpg"
+      "/images/house-1.jpg",
+      "/images/house-2.jpg"
     ],
     bedrooms: 6,
     bathrooms: 5,
@@ -161,8 +161,8 @@ export const villas: Villa[] = [
     description: "Villa contemporaine surplombant la baie de L'Île-Rousse avec accès privé à la plage.",
     pricePerNight: 1150,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-2.jpg",
-      "/Corsica-Luxury-Rentals/images/house-3.jpg"
+      "/images/house-2.jpg",
+      "/images/house-3.jpg"
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -178,8 +178,8 @@ export const villas: Villa[] = [
     description: "Élégante villa de style toscan avec vue sur le vieux port de Bastia.",
     pricePerNight: 980,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-3.jpg",
-      "/Corsica-Luxury-Rentals/images/house-1.jpg"
+      "/images/house-3.jpg",
+      "/images/house-1.jpg"
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -195,8 +195,8 @@ export const villas: Villa[] = [
     description: "Villa moderne avec vue imprenable sur le golfe de Propriano et accès direct à la plage.",
     pricePerNight: 1100,
     images: [
-      "/Corsica-Luxury-Rentals/images/house-1.jpg",
-      "/Corsica-Luxury-Rentals/images/house-2.jpg"
+      "/images/house-1.jpg",
+      "/images/house-2.jpg"
     ],
     bedrooms: 4,
     bathrooms: 3,
