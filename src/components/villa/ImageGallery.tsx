@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight, FaTimes, FaExpand } from 'react-icons/fa';
+import { FaTimes, FaExpand } from 'react-icons/fa';
 import { getImagePath } from '@/utils/imagePath';
 
 interface ImageGalleryProps {
@@ -12,73 +12,68 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [fullscreenIndex, setFullscreenIndex] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
-  };
+  const mainImage = images[0];
+  const sideImages = images.slice(1, 3);
 
   return (
-    <div className="space-y-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* Image principale */}
-      <div className="relative h-[600px] rounded-2xl overflow-hidden group">
+      <div className="relative h-[600px] md:h-[500px] rounded-2xl overflow-hidden group col-span-1">
         <Image
-          src={getImagePath(images[currentImageIndex])}
+          src={getImagePath(mainImage)}
           alt={`${villaName} - Image principale`}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"
           priority
+          onClick={() => {
+            setFullscreenIndex(0);
+            setIsFullscreen(true);
+          }}
         />
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <button
-            onClick={() => setIsFullscreen(true)}
+            onClick={() => {
+              setFullscreenIndex(0);
+              setIsFullscreen(true);
+            }}
             className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm p-2 rounded-full"
           >
             <FaExpand className="text-white text-xl" />
           </button>
         </div>
-        <button
-          onClick={previousImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <FaChevronLeft className="text-white text-xl" />
-        </button>
-        <button
-          onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <FaChevronRight className="text-white text-xl" />
-        </button>
       </div>
 
-      {/* Miniatures */}
-      <div className="grid grid-cols-4 gap-4">
-        {images.map((image, index) => (
-          <button
-            key={image}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`relative h-24 rounded-lg overflow-hidden ${
-              index === currentImageIndex ? 'ring-2 ring-luxury-gold' : ''
-            }`}
-          >
+      {/* Images secondaires */}
+      <div className="grid grid-cols-1 gap-4 h-[600px] md:h-[500px]">
+        {sideImages.map((image, index) => (
+          <div key={image} className="relative h-full rounded-2xl overflow-hidden group">
             <Image
               src={getImagePath(image)}
-              alt={`${villaName} - Image ${index + 1}`}
+              alt={`${villaName} - Image ${index + 2}`}
               fill
-              sizes="(max-width: 768px) 25vw, (max-width: 1200px) 20vw, 15vw"
+              sizes="(max-width: 768px) 100vw, 25vw"
               className="object-cover"
+              onClick={() => {
+                setFullscreenIndex(index + 1);
+                setIsFullscreen(true);
+              }}
             />
-          </button>
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button
+                onClick={() => {
+                  setFullscreenIndex(index + 1);
+                  setIsFullscreen(true);
+                }}
+                className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm p-2 rounded-full"
+              >
+                <FaExpand className="text-white text-xl" />
+              </button>
+            </div>
+          </div>
         ))}
       </div>
 
@@ -97,22 +92,10 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
             >
               <FaTimes className="text-white text-xl" />
             </button>
-            <button
-              onClick={previousImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm p-3 rounded-full"
-            >
-              <FaChevronLeft className="text-white text-xl" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm p-3 rounded-full"
-            >
-              <FaChevronRight className="text-white text-xl" />
-            </button>
-            <div className="relative w-full h-full max-w-7xl max-h-[90vh] m-4">
+            <div className="relative w-full h-full max-w-7xl max-h-[90vh] mx-4">
               <Image
-                src={getImagePath(images[currentImageIndex])}
-                alt={`${villaName} - Image ${currentImageIndex + 1}`}
+                src={getImagePath(images[fullscreenIndex])}
+                alt={`${villaName} - Image en plein écran`}
                 fill
                 sizes="100vw"
                 className="object-contain"

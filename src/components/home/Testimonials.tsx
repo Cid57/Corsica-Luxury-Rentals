@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { getImagePath } from '@/utils/imagePath';
 
 const testimonials = [
   {
     id: 1,
     name: 'Sophie Laurent',
     role: 'Séjour en famille',
-    image: '/images/person-1.jpg',
+    image: getImagePath('/images/person-1.jpg'),
     quote: 'Une expérience inoubliable dans une villa exceptionnelle. Le service de conciergerie était parfait, toujours à l\'écoute de nos besoins.',
     rating: 5,
     location: 'Villa à Porto-Vecchio'
@@ -18,7 +19,7 @@ const testimonials = [
     id: 2,
     name: 'Marc Dubois',
     role: 'Voyage d\'affaires',
-    image: '/images/person-2.jpg',
+    image: getImagePath('/images/person-2.jpg'),
     quote: 'Le niveau de luxe et de service est incomparable. Chaque détail a été pensé pour rendre notre séjour parfait.',
     rating: 5,
     location: 'Villa à Bonifacio'
@@ -27,7 +28,7 @@ const testimonials = [
     id: 3,
     name: 'Marie Lefebvre',
     role: 'Séjour romantique',
-    image: '/images/person-3.jpg',
+    image: getImagePath('/images/person-3.jpg'),
     quote: 'Un cadre idyllique pour notre séjour en amoureux. La vue sur la mer était à couper le souffle.',
     rating: 5,
     location: 'Villa à Saint-Florent'
