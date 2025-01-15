@@ -8,6 +8,7 @@ import { FaUser, FaMapMarkerAlt, FaPaw } from 'react-icons/fa';
 import { fr } from 'date-fns/locale';
 import { VILLES_CORSE } from '@/data/villes';
 import './home-calendar.css';
+import { DateRange } from 'react-day-picker';
 
 interface DateRange {
   from: Date | null;
@@ -34,7 +35,7 @@ const LocationDropdown = ({ onSelect }: { onSelect: (ville: typeof VILLES_CORSE[
 export default function SearchBar() {
   const [location, setLocation] = useState('');
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
-  const [dates, setDates] = useState<DateRange>({ from: null, to: null });
+  const [dates, setDates] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState(1);
   const [showGuestCounter, setShowGuestCounter] = useState(false);
   const [hasPets, setHasPets] = useState(false);
@@ -58,8 +59,8 @@ export default function SearchBar() {
   const handleSearch = () => {
     const searchParams = new URLSearchParams();
     if (location) searchParams.set('location', location);
-    if (dates.from) searchParams.set('startDate', dates.from.toISOString());
-    if (dates.to) searchParams.set('endDate', dates.to.toISOString());
+    if (dates?.from) searchParams.set('startDate', dates.from.toISOString());
+    if (dates?.to) searchParams.set('endDate', dates.to.toISOString());
     searchParams.set('guests', guests.toString());
     if (hasPets) searchParams.set('pets', 'true');
 
@@ -96,7 +97,7 @@ export default function SearchBar() {
             <div className="relative bg-white/5 rounded-2xl p-4">
               <HomeCalendar
                 selected={dates}
-                onChange={(newDates) => setDates(newDates)}
+                onSelect={setDates}
               />
             </div>
           </div>
