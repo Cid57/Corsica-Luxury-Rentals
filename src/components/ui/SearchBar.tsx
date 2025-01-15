@@ -4,25 +4,31 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import HomeCalendar from './HomeCalendar';
 import GuestCounter from './GuestCounter';
-import { FaUser, FaMapMarkerAlt, FaPaw, FaSearch } from 'react-icons/fa';
+import { FaUser, FaMapMarkerAlt, FaPaw, FaSearch, FaCalendarAlt } from 'react-icons/fa';
 import { fr } from 'date-fns/locale';
 import { VILLES_CORSE } from '@/data/villes';
+import styles from './SearchBar.module.css';
 import './home-calendar.css';
+import { format } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 
 const LocationDropdown = ({ onSelect }: { onSelect: (ville: typeof VILLES_CORSE[0]) => void }) => {
   return (
-    <div className="absolute z-10 w-full mt-2">
-      {VILLES_CORSE.map((ville) => (
-        <button
-          key={ville.name}
-          className="w-full px-6 py-3 text-left hover:text-white/90 transition-colors"
-          onClick={() => onSelect(ville)}
-        >
-          <div className="font-medium">{ville.name}</div>
-          <div className="text-sm text-white/50">{ville.description}</div>
-        </button>
-      ))}
+    <div className={`absolute top-full left-0 mt-2 w-full max-h-[300px] overflow-y-auto bg-[#2B4562] border border-luxury-gold/20 rounded-xl shadow-lg z-50 ${styles.customScrollbar}`}>
+      <div className="p-2">
+        {VILLES_CORSE.map((ville) => (
+          <button
+            key={ville.nom}
+            onClick={() => onSelect(ville)}
+            className="w-full text-left px-4 py-3 hover:bg-white/5 text-white rounded-lg transition-colors duration-300 flex items-center space-x-3 backdrop-blur-sm"
+          >
+            <div>
+              <div className="font-medium">{ville.nom}</div>
+              <div className="text-sm text-white/60">{ville.region}</div>
+            </div>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -30,7 +36,7 @@ const LocationDropdown = ({ onSelect }: { onSelect: (ville: typeof VILLES_CORSE[
 export default function SearchBar() {
   const [location, setLocation] = useState('');
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
-  const [dates, setDates] = useState<DateRange | undefined>();
+  const [dates, setDates] = useState<{ from?: Date; to?: Date }>();
   const [guests, setGuests] = useState(1);
   const [showGuestCounter, setShowGuestCounter] = useState(false);
   const [hasPets, setHasPets] = useState(false);
@@ -50,6 +56,13 @@ export default function SearchBar() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const formatDateRange = () => {
+    if (dates?.from && dates?.to) {
+      return `${format(dates.from, 'dd/MM/yyyy')} - ${format(dates.to, 'dd/MM/yyyy')}`;
+    }
+    return 'Sélectionnez vos dates';
+  };
 
   const handleSearch = () => {
     const searchParams = new URLSearchParams();
@@ -83,20 +96,22 @@ export default function SearchBar() {
                 </div>
               </div>
               {showLocationDropdown && <LocationDropdown onSelect={(ville) => {
-                setLocation(ville.name);
+                setLocation(ville.nom);
                 setShowLocationDropdown(false);
               }} />}
             </div>
 
             {/* Dates */}
             <div className="relative">
+              <div className="text-white/60 text-xs uppercase tracking-wide mb-3">
+                <div className="flex items-center space-x-2 px-6">
+                  <FaCalendarAlt className="text-luxury-gold text-sm" />
+                  <span>Dates</span>
+                </div>
+              </div>
               <HomeCalendar
                 selected={dates}
-                onSelect={(newDates) => {
-                  if (newDates?.from !== dates?.from || newDates?.to !== dates?.to) {
-                    setDates(newDates);
-                  }
-                }}
+                onSelect={setDates}
               />
             </div>
           </div>

@@ -1,68 +1,27 @@
 export interface Ville {
-  name: string;
+  nom: string;
   region: string;
-  description: string;
 }
 
 export const VILLES_CORSE: Ville[] = [
-  {
-    name: "Ajaccio",
-    region: "Corse-du-Sud",
-    description: "Ville impériale et capitale de la Corse"
-  },
-  {
-    name: "Porto-Vecchio",
-    region: "Corse-du-Sud",
-    description: "Station balnéaire prisée du sud de l'île"
-  },
-  {
-    name: "Bonifacio",
-    region: "Corse-du-Sud",
-    description: "Cité médiévale perchée sur les falaises"
-  },
-  {
-    name: "Bastia",
-    region: "Haute-Corse",
-    description: "Port historique et deuxième ville de Corse"
-  },
-  {
-    name: "Calvi",
-    region: "Haute-Corse",
-    description: "Station balnéaire avec sa citadelle génoise"
-  },
-  {
-    name: "L'Île-Rousse",
-    region: "Haute-Corse",
-    description: "Charmante ville côtière de la Balagne"
-  },
-  {
-    name: "Saint-Florent",
-    region: "Haute-Corse",
-    description: "Port de plaisance au cœur du golfe"
-  },
-  {
-    name: "Propriano",
-    region: "Corse-du-Sud",
-    description: "Station balnéaire du golfe du Valinco"
-  },
-  {
-    name: "Corte",
-    region: "Haute-Corse",
-    description: "Ville universitaire au cœur des montagnes"
-  },
-  {
-    name: "Sartène",
-    region: "Corse-du-Sud",
-    description: "La plus corse des villes corses"
-  },
-  {
-    name: "Zonza",
-    region: "Corse-du-Sud",
-    description: "Village de montagne près des aiguilles de Bavella"
-  },
-  {
-    name: "Cargèse",
-    region: "Corse-du-Sud",
-    description: "Village aux deux églises face à la mer"
-  }
+  { nom: "Ajaccio", region: "Corse-du-Sud" },
+  { nom: "Bastia", region: "Haute-Corse" },
+  { nom: "Porto-Vecchio", region: "Corse-du-Sud" },
+  { nom: "Calvi", region: "Haute-Corse" },
+  { nom: "Bonifacio", region: "Corse-du-Sud" },
+  { nom: "L'Île-Rousse", region: "Haute-Corse" },
+  { nom: "Propriano", region: "Corse-du-Sud" },
+  { nom: "Saint-Florent", region: "Haute-Corse" },
+  { nom: "Sartène", region: "Corse-du-Sud" },
+  { nom: "Corte", region: "Haute-Corse" },
+  { nom: "Cargèse", region: "Corse-du-Sud" },
+  { nom: "Piana", region: "Corse-du-Sud" },
+  { nom: "Algajola", region: "Haute-Corse" },
+  { nom: "Porto", region: "Corse-du-Sud" },
+  { nom: "Sagone", region: "Corse-du-Sud" },
+  { nom: "Santa-Giulia", region: "Corse-du-Sud" },
+  { nom: "Palombaggia", region: "Corse-du-Sud" },
+  { nom: "Lumio", region: "Haute-Corse" },
+  { nom: "Sant'Ambroggio", region: "Haute-Corse" },
+  { nom: "Zonza", region: "Corse-du-Sud" }
 ];
