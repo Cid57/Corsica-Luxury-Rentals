@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/Corsica-Luxury-Rentals',
+  basePath: process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : '',
   trailingSlash: true,
 }
 
