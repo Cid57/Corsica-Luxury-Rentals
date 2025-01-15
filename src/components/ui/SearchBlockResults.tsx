@@ -4,10 +4,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaMapMarkerAlt, FaCalendarAlt, FaUser, FaPaw, FaSearch } from 'react-icons/fa';
 import { VILLES_CORSE } from '@/data/villes';
-import { DateRange } from 'react-day-picker';
+import { DateRange as ReactDateRange } from 'react-day-picker';
 import HomeCalendar from './HomeCalendar';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+
+interface CustomDateRange {
+  from?: Date;
+  to?: Date;
+}
 
 export default function SearchBlockResults() {
   const router = useRouter();
@@ -15,7 +20,7 @@ export default function SearchBlockResults() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [showGuestCounter, setShowGuestCounter] = useState(false);
   const [location, setLocation] = useState('');
-  const [dateRange, setDateRange] = useState<DateRange | undefined>();
+  const [dateRange, setDateRange] = useState<CustomDateRange | undefined>();
   const [guests, setGuests] = useState(1);
   const [hasPets, setHasPets] = useState(false);
 
@@ -60,15 +65,15 @@ export default function SearchBlockResults() {
                 <div className="absolute z-20 w-full mt-2 bg-gray-900/95 backdrop-blur-sm border border-white/10 rounded-xl shadow-xl max-h-[320px] overflow-y-auto">
                   {VILLES_CORSE.map((ville) => (
                     <button
-                      key={ville.name}
+                      key={ville.nom}
                       className="w-full px-4 py-3 text-left hover:bg-white/5 text-white/90 transition-colors flex flex-col gap-0.5"
                       onClick={() => {
-                        setLocation(ville.name);
+                        setLocation(ville.nom);
                         setShowLocationDropdown(false);
                       }}
                     >
-                      <div className="font-medium">{ville.name}</div>
-                      <div className="text-sm text-white/50">{ville.description}</div>
+                      <div className="font-medium">{ville.nom}</div>
+                      <div className="text-sm text-white/60">{ville.region}</div>
                     </button>
                   ))}
                 </div>
@@ -85,7 +90,11 @@ export default function SearchBlockResults() {
                 <div className="flex-1">
                   <div className="text-white/60 text-sm font-medium">Dates</div>
                   <div className="text-white">
-                    {formatDateRange()}
+                    {dateRange?.from
+                      ? `${dateRange.from.toLocaleDateString()} - ${
+                          dateRange.to ? dateRange.to.toLocaleDateString() : 'Choisir la date de départ'
+                        }`
+                      : 'Quand partez-vous ?'}
                   </div>
                 </div>
               </button>

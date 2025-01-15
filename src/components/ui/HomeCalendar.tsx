@@ -7,9 +7,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./home-calendar.css";
 
+interface CustomDateRange {
+  from?: Date;
+  to?: Date;
+}
+
 interface HomeCalendarProps {
-  selected?: { from?: Date; to?: Date };
-  onSelect?: (range: { from?: Date; to?: Date } | undefined) => void;
+  selected?: CustomDateRange;
+  onSelect?: (range: CustomDateRange | undefined) => void;
 }
 
 export default function HomeCalendar({
@@ -46,7 +51,10 @@ export default function HomeCalendar({
         selected={selected?.from || null}
         onChange={(dates: [Date | null, Date | null]) => {
           const [start, end] = dates;
-          onSelect?.({ from: start || undefined, to: end || undefined });
+          onSelect?.({ 
+            from: start || undefined, 
+            to: end || undefined 
+          });
         }}
         startDate={selected?.from || null}
         endDate={selected?.to || null}
