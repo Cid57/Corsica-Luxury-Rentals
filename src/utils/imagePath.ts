@@ -1,4 +1,9 @@
 export function getImagePath(path: string): string {
-  const basePath = process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : '';
-  return `${basePath}${path}`;
+  // Ajouter le préfixe pour GitHub Pages en production
+  const basePath = process.env.NODE_ENV === 'production' ? '/corsica-luxury-rentals' : '';
+  
+  // S'assurer que le chemin commence par /
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  
+  return `${basePath}${normalizedPath}`;
 }

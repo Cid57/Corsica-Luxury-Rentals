@@ -1,6 +1,6 @@
 import { Villa } from '@/types/villa';
 
-const basePath = process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : '';
+const basePath = process.env.NODE_ENV === 'production' ? '/corsica-luxury-rentals' : '';
 
 export const villas: Villa[] = [
   {
