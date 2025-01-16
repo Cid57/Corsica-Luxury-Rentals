@@ -30,7 +30,6 @@ export default function SearchResults() {
       return matchesLocation && matchesGuests;
     });
 
-    // Ajout d'un délai artificiel pour éviter le chargement trop rapide
     setTimeout(() => {
       setFilteredVillas(filteredVillas);
       setIsLoading(false);
@@ -49,6 +48,10 @@ export default function SearchResults() {
 
   const handleBack = () => {
     router.back();
+  };
+
+  const handleVillaClick = (villaId: string) => {
+    router.push(`/villas/${villaId}/reservation/`);
   };
 
   if (isLoading) {
@@ -80,9 +83,7 @@ export default function SearchResults() {
           Retour
         </button>
 
-        <SearchBlockResults />
-
-        <div className="mt-12">
+        <div className="mb-12">
           <h1 className="text-4xl font-serif text-white mb-4">
             Villas disponibles à {searchParams.get('location')}
           </h1>
@@ -97,83 +98,63 @@ export default function SearchResults() {
               {searchParams.get('guests')} voyageur{Number(searchParams.get('guests')) > 1 ? 's' : ''}
             </span>
           </div>
+        </div>
 
-          {filteredVillas.length === 0 ? (
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center max-w-2xl mx-auto">
-              <h2 className="text-2xl font-serif text-white mb-4">
-                Aucune villa disponible
-              </h2>
-              <p className="text-white/80 mb-6">
-                Nous n'avons pas trouvé de villa correspondant à vos critères.
-                Essayez de modifier vos dates ou votre lieu de séjour.
-              </p>
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-luxury-gold text-white rounded-xl hover:bg-luxury-gold/90 transition-colors"
+        {filteredVillas.length === 0 ? (
+          <div className="text-center py-12">
+            <h2 className="text-2xl text-white mb-4">Aucune villa ne correspond à vos critères</h2>
+            <p className="text-white/80">Essayez de modifier vos critères de recherche</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredVillas.map((villa) => (
+              <button 
+                key={villa.id}
+                onClick={() => handleVillaClick(villa.id)}
+                className="group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/20 transition-colors text-left"
               >
-                Modifier la recherche
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredVillas.map((villa) => (
-                <div 
-                  key={villa.id}
-                  className="group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all"
-                >
-                  <div className="relative h-64">
-                    <Image
-                      src={getImagePath(villa.images[0])}
-                      alt={villa.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                <div className="relative h-64">
+                  <Image
+                    src={getImagePath(villa.images[0])}
+                    alt={villa.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-serif text-white mb-2 group-hover:text-luxury-gold transition-colors">
+                    {villa.name}
+                  </h3>
+                  <p className="text-white/60 mb-4">{villa.location}</p>
+                  <div className="flex items-center gap-4 text-white/80">
+                    <div className="flex items-center gap-1">
+                      <FaBed />
+                      <span>{villa.bedrooms}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FaBath />
+                      <span>{villa.bathrooms}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <FaUsers />
+                      <span>{villa.maxGuests}</span>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-serif text-white mb-2">{villa.name}</h3>
-                    <p className="text-white/80 mb-4 line-clamp-2">{villa.description}</p>
-                    <div className="flex items-center gap-6 text-white/60">
-                      <div className="flex items-center gap-2">
-                        <FaBed />
-                        <span>{villa.bedrooms} ch.</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FaBath />
-                        <span>{villa.bathrooms} sdb.</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FaUsers />
-                        <span>{villa.maxGuests} pers.</span>
-                      </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div>
+                      <span className="text-2xl font-serif text-white">{villa.pricePerNight}€</span>
+                      <span className="text-white/60 text-sm">/nuit</span>
                     </div>
-                    <div className="flex items-center justify-between mt-6">
-                      <div className="flex items-center text-gray-600 text-sm space-x-4">
-                        <div className="flex items-center space-x-1">
-                          <FaBed />
-                          <span>{villa.bedrooms} ch.</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <FaBath />
-                          <span>{villa.bathrooms} sdb.</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <FaUsers />
-                          <span>{villa.maxGuests} pers.</span>
-                        </div>
-                      </div>
-                      <Link
-                        href={`/villas/${villa.id}/reservation`}
-                        className="flex items-center text-luxury-gold hover:text-luxury-gold/80 transition-colors duration-300"
-                      >
-                        <span className="mr-2">Voir détails</span>
-                        <FaChevronRight className="text-sm" />
-                      </Link>
-                    </div>
+                    <FaChevronRight className="text-luxury-gold" />
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-16">
+          <SearchBlockResults />
         </div>
       </div>
     </div>
