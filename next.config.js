@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : '',
   trailingSlash: true,
 }
 
