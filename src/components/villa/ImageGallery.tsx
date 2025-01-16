@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaExpand, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -33,8 +33,8 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
     }
   }, [nextImage, previousImage]);
 
-  // Ajouter/supprimer les événements clavier
-  useState(() => {
+  // Utiliser useEffect au lieu de useState pour les événements clavier
+  useEffect(() => {
     if (isFullscreen) {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
