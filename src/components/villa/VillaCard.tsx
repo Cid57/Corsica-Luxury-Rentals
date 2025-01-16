@@ -11,7 +11,7 @@ interface VillaCardProps {
 
 export default function VillaCard({ villa }: VillaCardProps) {
   return (
-    <Link href={`/villas/${villa.id}`} className="group mx-auto w-full max-w-md">
+    <Link href={`/villas/${villa.id}/reservation`} className="group mx-auto w-full max-w-md">
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
         <div className="relative h-72">
           <div className="absolute top-4 right-4 z-10">

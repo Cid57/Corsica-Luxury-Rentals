@@ -149,15 +149,27 @@ export default function SearchResults() {
                         <span>{villa.maxGuests} pers.</span>
                       </div>
                     </div>
-                    <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                      <p className="text-luxury-gold font-medium text-lg">
-                        {villa.pricePerNight}€ <span className="text-white/60 text-base font-normal">/ nuit</span>
-                      </p>
-                      <Link 
+                    <div className="flex items-center justify-between mt-6">
+                      <div className="flex items-center text-gray-600 text-sm space-x-4">
+                        <div className="flex items-center space-x-1">
+                          <FaBed />
+                          <span>{villa.bedrooms} ch.</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <FaBath />
+                          <span>{villa.bathrooms} sdb.</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <FaUsers />
+                          <span>{villa.maxGuests} pers.</span>
+                        </div>
+                      </div>
+                      <Link
                         href={`/villas/${villa.id}/reservation`}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-luxury-gold text-white rounded-xl hover:bg-luxury-gold/90 transition-colors text-sm font-medium"
+                        className="flex items-center text-luxury-gold hover:text-luxury-gold/80 transition-colors duration-300"
                       >
-                        Découvrir <FaChevronRight className="text-xs" />
+                        <span className="mr-2">Voir détails</span>
+                        <FaChevronRight className="text-sm" />
                       </Link>
                     </div>
                   </div>

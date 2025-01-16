@@ -6,6 +6,7 @@ import { BsWifi, BsHouseDoor } from 'react-icons/bs';
 import ReservationNavigation from '@/components/villa/ReservationNavigation';
 import BookingFormWrapper from '@/components/villa/BookingFormWrapper';
 import AmenitiesList from '@/components/villa/AmenitiesList';
+import { getImagePath } from '@/utils/getImagePath';
 
 interface PageProps {
   params: {
@@ -26,16 +27,15 @@ export default function Page({ params }: PageProps) {
     notFound();
   }
 
-  const defaultImage = '/images/default-villa.jpg'; 
+  const defaultImage = getImagePath('/images/default-villa.jpg'); 
   const villaImage = villa.images && villa.images.length > 0 ? villa.images[0] : defaultImage;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Bouton retour */}
+    <div className="min-h-screen bg-[#F8FAFC]">
       <ReservationNavigation />
 
-      {/* Hero Section avec image et titre */}
-      <div className="relative h-[40vh] w-full">
+      {/* Hero Section réduite */}
+      <div className="relative h-[35vh] w-full">
         <Image
           src={villaImage}
           alt={villa.name}
@@ -43,55 +43,60 @@ export default function Page({ params }: PageProps) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <h1 className="text-4xl font-bold mb-2">{villa.name}</h1>
-          <p className="text-xl opacity-90">{villa.location}</p>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <div className="container mx-auto">
+            <h1 className="text-3xl md:text-4xl font-serif mb-2 text-white">{villa.name}</h1>
+            <p className="text-lg opacity-90 flex items-center text-white">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-luxury-gold mr-2"></span>
+              {villa.location}
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
           {/* Colonne gauche */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Informations principales */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold mb-4">Informations sur la villa</h2>
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <h2 className="text-xl font-serif mb-4">Informations sur la villa</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="flex items-center gap-2">
-                  <FaBed className="w-5 h-5 text-gray-600" />
-                  <span>{villa.bedrooms} chambres</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+                  <FaBed className="w-5 h-5 text-luxury-gold" />
+                  <span className="text-sm text-gray-600">{villa.bedrooms} ch.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <FaBath className="w-5 h-5 text-gray-600" />
-                  <span>{villa.bathrooms} SDB</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+                  <FaBath className="w-5 h-5 text-luxury-gold" />
+                  <span className="text-sm text-gray-600">{villa.bathrooms} sdb.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <FaUsers className="w-5 h-5 text-gray-600" />
-                  <span>{villa.maxGuests} pers. max</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+                  <FaUsers className="w-5 h-5 text-luxury-gold" />
+                  <span className="text-sm text-gray-600">{villa.maxGuests} pers.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <BsHouseDoor className="w-5 h-5 text-gray-600" />
-                  <span>{villa.surface} m²</span>
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+                  <BsHouseDoor className="w-5 h-5 text-luxury-gold" />
+                  <span className="text-sm text-gray-600">{villa.surface}m²</span>
                 </div>
               </div>
             </div>
 
-            {/* Équipements */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold mb-4">Équipements</h2>
-              <AmenitiesList amenities={villa.amenities} />
+            {/* Description */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <h2 className="text-xl font-serif mb-4">Description</h2>
+              <p className="text-sm text-gray-600 leading-relaxed">{villa.description}</p>
             </div>
 
-            {/* Description */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <h2 className="text-2xl font-bold mb-4">Description</h2>
-              <p className="text-gray-600 leading-relaxed">{villa.description}</p>
+            {/* Équipements */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              <h2 className="text-xl font-serif mb-4">Équipements</h2>
+              <AmenitiesList amenities={villa.amenities} />
             </div>
           </div>
 
           {/* Colonne droite - Formulaire de réservation */}
-          <div className="lg:sticky lg:top-8">
+          <div className="lg:sticky lg:top-4">
             <BookingFormWrapper villa={villa} />
           </div>
         </div>

@@ -8,22 +8,16 @@ import Image from 'next/image';
 import { getImagePath } from '@/utils/imagePath';
 
 export default function Hero() {
+  const backgroundImageStyle = {
+    backgroundImage: `url(${process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : ''}/images/porto-vecchio-1.jpg)`,
+    backgroundSize: 'cover',
+    backgroundPosition: '50% 30%',
+  };
+
   return (
     <>
       {/* Hero section avec image */}
-      <section className="relative h-[80vh]">
-        {/* Image de fond */}
-        <div className="absolute inset-0">
-          <Image
-            src={getImagePath('/images/porto-vecchio-1.jpg')}
-            alt="Vue de Porto-Vecchio"
-            fill
-            priority
-            className="object-cover brightness-[0.6]"
-            style={{ objectPosition: '50% 30%' }}
-          />
-        </div>
-        
+      <section className="relative h-[80vh]" style={backgroundImageStyle}>
         {/* Overlay graduel */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
 

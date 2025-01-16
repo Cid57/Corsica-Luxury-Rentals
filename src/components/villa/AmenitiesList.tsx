@@ -9,23 +9,21 @@ interface AmenitiesListProps {
   amenities: string[];
 }
 
-export default function AmenitiesList({ amenities }: AmenitiesListProps) {
+export default function AmenitiesList({ amenities }: { amenities: string[] }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {amenities.map((amenity, index) => (
-        <motion.div
+        <div 
           key={index}
-          className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 }}
+          className="flex items-center gap-2 p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
         >
           {amenity === 'WiFi' && <BsWifi className="w-5 h-5 text-gray-600" />}
           {amenity === 'Piscine' && <TbPool className="w-5 h-5 text-gray-600" />}
           {amenity === 'Animaux acceptés' && <MdPets className="w-5 h-5 text-gray-600" />}
           {amenity === 'Service de ménage' && <MdOutlineCleaningServices className="w-5 h-5 text-gray-600" />}
-          <span>{amenity}</span>
-        </motion.div>
+          {!(amenity === 'WiFi' || amenity === 'Piscine' || amenity === 'Animaux acceptés' || amenity === 'Service de ménage') && <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></span>}
+          <span className="text-xs text-gray-600">{amenity}</span>
+        </div>
       ))}
     </div>
   );
