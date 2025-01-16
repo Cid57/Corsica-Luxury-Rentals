@@ -22,17 +22,6 @@ export default function BookingFormWrapper({ villa }: BookingFormWrapperProps) {
       </div>
 
       <div className="space-y-4">
-        <div className="p-3 rounded-lg bg-gray-50 border border-gray-100">
-          <div className="flex items-center gap-2 text-gray-600 mb-1">
-            <FaInfoCircle className="text-luxury-gold w-4 h-4" />
-            <span className="text-xs font-medium">Informations</span>
-          </div>
-          <ul className="text-xs text-gray-500 space-y-1">
-            <li>• Check-in: 15h00</li>
-            <li>• Check-out: 11h00</li>
-          </ul>
-        </div>
-
         <BookingForm 
           villaId={villa.id} 
           pricePerNight={villa.pricePerNight}

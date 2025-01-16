@@ -2,7 +2,7 @@
 
 import { villas } from '@/data/villas';
 import { notFound } from 'next/navigation';
-import { FaBed, FaBath, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaBed, FaBath, FaUsers, FaMapMarkerAlt, FaInfoCircle } from 'react-icons/fa';
 import { BsHouseDoor } from 'react-icons/bs';
 import ReservationNavigation from '@/components/villa/ReservationNavigation';
 import BookingFormWrapper from '@/components/villa/BookingFormWrapper';
@@ -65,25 +65,65 @@ export default function Page({ params }: PageProps) {
 
         {/* Contenu principal */}
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
             {/* Colonne gauche */}
             <div className="space-y-8">
               {/* Description */}
-              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-                <h2 className="text-2xl font-serif mb-6 text-gray-900">À propos de la villa</h2>
+              <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-luxury-gold/10 flex items-center justify-center">
+                    <BsHouseDoor className="w-5 h-5 text-luxury-gold" />
+                  </div>
+                  <h2 className="text-2xl font-serif text-gray-900">À propos de la villa</h2>
+                </div>
                 <p className="text-gray-600 leading-relaxed">{villa.description}</p>
               </div>
 
               {/* Équipements */}
-              <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-                <h2 className="text-2xl font-serif mb-6 text-gray-900">Équipements</h2>
+              <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-luxury-gold/10 flex items-center justify-center">
+                    <FaUsers className="w-5 h-5 text-luxury-gold" />
+                  </div>
+                  <h2 className="text-2xl font-serif text-gray-900">Équipements</h2>
+                </div>
                 <AmenitiesList amenities={villa.amenities} />
+              </div>
+
+              {/* Informations d'arrivée */}
+              <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-luxury-gold/10 flex items-center justify-center">
+                    <FaInfoCircle className="w-5 h-5 text-luxury-gold" />
+                  </div>
+                  <h2 className="text-2xl font-serif text-gray-900">Informations d&apos;arrivée</h2>
+                </div>
+                <div className="space-y-6">
+                  <div className="p-6 rounded-xl bg-gray-50 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-luxury-gold/10 flex items-center justify-center">
+                        <FaBed className="w-4 h-4 text-luxury-gold" />
+                      </div>
+                      <h3 className="font-medium text-gray-900">Check-in</h3>
+                    </div>
+                    <p className="text-gray-600 text-lg ml-11">15h00</p>
+                  </div>
+                  <div className="p-6 rounded-xl bg-gray-50 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-luxury-gold/10 flex items-center justify-center">
+                        <FaBed className="w-4 h-4 text-luxury-gold" />
+                      </div>
+                      <h3 className="font-medium text-gray-900">Check-out</h3>
+                    </div>
+                    <p className="text-gray-600 text-lg ml-11">11h00</p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Colonne droite - Formulaire de réservation */}
             <div className="lg:sticky lg:top-28">
-              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                 <BookingFormWrapper villa={villa} />
               </div>
             </div>
