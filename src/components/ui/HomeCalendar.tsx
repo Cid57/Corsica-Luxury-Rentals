@@ -26,10 +26,10 @@ export default function HomeCalendar({
     : 0;
 
   return (
-    <div className="home-calendar bg-white/5 rounded-2xl p-4">
+    <div className="home-calendar bg-white/5 rounded-2xl p-3">
       {selected?.from && (
-        <div className="date-range-display bg-white/5 backdrop-blur rounded-lg p-4 mb-4 text-center">
-          <div className="text-luxury-gold text-lg font-medium mb-2">
+        <div className="date-range-display bg-white/5 backdrop-blur rounded-lg p-3 mb-3 text-center">
+          <div className="text-luxury-gold text-base font-medium mb-1">
             {selected.to ? (
               <>
                 Du {format(selected.from, 'dd MMMM', { locale: fr })} au{' '}

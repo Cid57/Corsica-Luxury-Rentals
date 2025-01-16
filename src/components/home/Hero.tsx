@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import SearchBar from '../ui/SearchBar';
+import SearchBar from '@/components/ui/SearchBar';
+import Features from './Features';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { getImagePath } from '@/utils/imagePath';
@@ -48,24 +49,27 @@ export default function Hero() {
       </section>
 
       {/* Section de recherche */}
-      <section className="bg-gradient-to-br from-[#2B4562] via-[#2B4562] to-gray-600 py-16">
+      <section className="bg-gradient-to-br from-[#2B4562] via-[#2B4562] to-[#C4A24D]/70 py-8">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8 mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-8">
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-6">
+            <h2 className="text-3xl md:text-4xl xl:text-5xl font-medium text-white mb-2">
               Trouvez la Villa de vos Rêves
-            </h1>
-            <p className="text-xl text-gray-300">
+            </h2>
+            <p className="text-lg text-gray-300">
               Découvrez notre sélection exclusive de villas de luxe en Corse
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6">
               <SearchBar />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Section Features */}
+      <Features />
     </>
   );
 }
