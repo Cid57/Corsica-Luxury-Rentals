@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { getImagePath } from '@/utils/imagePath';
 
 interface VirtualTourProps {
   images: string[];
@@ -24,7 +25,7 @@ export default function VirtualTour({ images, title }: VirtualTourProps) {
           className="relative aspect-[4/3] overflow-hidden rounded-lg"
         >
           <Image
-            src={images[currentImageIndex]}
+            src={getImagePath(images[currentImageIndex])}
             alt={`Vue ${currentImageIndex + 1} de ${title}`}
             fill
             className="object-cover"

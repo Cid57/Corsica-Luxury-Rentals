@@ -6,9 +6,13 @@ import Link from 'next/link';
 import { FaBed, FaUsers, FaBath } from 'react-icons/fa';
 
 export default function AllVillas() {
+  const getImagePath = (path: string) => {
+    return `${process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : ''}${path}`;
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50/50">
-      <div className="mx-auto max-w-[2000px] px-8 lg:px-16 py-12">
+    <div className="min-h-screen bg-gray-50/50 py-20">
+      <div className="mx-auto max-w-[2000px] px-8 lg:px-16">
         <div className="flex flex-col items-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">
             Nos villas
@@ -21,7 +25,11 @@ export default function AllVillas() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {villas.map((villa) => (
-            <Link href={`/villas/${villa.id}`} key={villa.id} className="group mx-auto w-full max-w-md">
+            <Link
+              key={villa.id}
+              href={`/villas/${villa.id}`}
+              className="group mx-auto w-full max-w-md"
+            >
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-72">
                   <div className="absolute top-4 right-4 z-10">
@@ -30,7 +38,7 @@ export default function AllVillas() {
                     </div>
                   </div>
                   <Image
-                    src={villa.images[0]}
+                    src={getImagePath(villa.images[0])}
                     alt={villa.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"

@@ -4,7 +4,6 @@ import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaExpand, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { getImagePath } from '@/utils/imagePath';
 
 interface ImageGalleryProps {
   images: string[];
@@ -14,6 +13,10 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenIndex, setFullscreenIndex] = useState(0);
+
+  const getImagePath = (path: string) => {
+    return `${process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : ''}${path}`;
+  };
 
   const nextImage = useCallback(() => {
     setFullscreenIndex((prev) => (prev + 1) % images.length);
@@ -33,7 +36,6 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
     }
   }, [nextImage, previousImage]);
 
-  // Utiliser useEffect au lieu de useState pour les événements clavier
   useEffect(() => {
     if (isFullscreen) {
       window.addEventListener('keydown', handleKeyDown);
@@ -44,90 +46,54 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
   return (
     <div className="relative group">
       {/* Grille d'images */}
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-2 h-[400px] md:h-[550px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 h-[300px] md:h-[400px]">
         {/* Image principale */}
-        <div className="relative overflow-hidden cursor-pointer">
+        <div className="relative col-span-2 row-span-2 overflow-hidden rounded-lg cursor-pointer" 
+             onClick={() => { setIsFullscreen(true); setFullscreenIndex(0); }}>
           <Image
             src={getImagePath(images[0])}
-            alt={`${villaName} - Image principale`}
+            alt={`${villaName} - Vue principale`}
             fill
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 66vw"
-            className="object-cover hover:scale-105 transition-transform duration-700"
-            priority
-            onClick={() => {
-              setFullscreenIndex(0);
-              setIsFullscreen(true);
-            }}
           />
+          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+          <FaExpand className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xl" />
         </div>
 
         {/* Images secondaires */}
-        <div className="hidden md:grid grid-rows-2 gap-2">
-          <div className="relative overflow-hidden cursor-pointer">
+        <div className="hidden md:block">
+          <div className="relative h-[198px] overflow-hidden rounded-lg cursor-pointer mb-2" 
+               onClick={() => { setIsFullscreen(true); setFullscreenIndex(1); }}>
             <Image
               src={getImagePath(images[1])}
-              alt={`${villaName} - Image 2`}
+              alt={`${villaName} - Vue secondaire 1`}
               fill
-              sizes="25vw"
-              className="object-cover hover:scale-105 transition-transform duration-700"
-              onClick={() => {
-                setFullscreenIndex(1);
-                setIsFullscreen(true);
-              }}
+              className="object-cover"
+              sizes="33vw"
             />
+            <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300" />
           </div>
-          <div className="relative overflow-hidden cursor-pointer">
+          <div className="relative h-[198px] overflow-hidden rounded-lg cursor-pointer" 
+               onClick={() => { setIsFullscreen(true); setFullscreenIndex(2); }}>
             <Image
               src={getImagePath(images[2])}
-              alt={`${villaName} - Image 3`}
+              alt={`${villaName} - Vue secondaire 2`}
               fill
-              sizes="25vw"
-              className="object-cover hover:scale-105 transition-transform duration-700"
-              onClick={() => {
-                setFullscreenIndex(2);
-                setIsFullscreen(true);
-              }}
+              className="object-cover"
+              sizes="33vw"
             />
-          </div>
-        </div>
-
-        {/* Dernière colonne avec bouton */}
-        <div className="hidden md:grid grid-rows-2 gap-2">
-          <div className="relative overflow-hidden cursor-pointer">
-            <Image
-              src={getImagePath(images[2])}
-              alt={`${villaName} - Image 4`}
-              fill
-              sizes="25vw"
-              className="object-cover hover:scale-105 transition-transform duration-700"
-              onClick={() => {
-                setFullscreenIndex(2);
-                setIsFullscreen(true);
-              }}
-            />
-          </div>
-          <div className="relative overflow-hidden cursor-pointer">
-            <div className="absolute inset-0 bg-black/40 z-10 flex items-center justify-center group-hover:bg-black/50 transition-colors duration-300">
+            <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300" />
+            <div className="absolute inset-0 flex items-center justify-center">
               <button
-                onClick={() => {
-                  setFullscreenIndex(0);
-                  setIsFullscreen(true);
-                }}
-                className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg 
-                           hover:bg-white transition-all duration-300 
-                           text-sm font-medium flex items-center gap-2"
+                onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); }}
+                className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium
+                         hover:bg-white transition-all duration-300 flex items-center gap-2"
               >
                 <FaExpand className="w-4 h-4" />
-                Voir toutes les photos
+                Voir plus
               </button>
             </div>
-            <Image
-              src={getImagePath(images[1])}
-              alt={`${villaName} - Image 5`}
-              fill
-              sizes="25vw"
-              className="object-cover"
-            />
           </div>
         </div>
       </div>
@@ -139,54 +105,46 @@ export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
+            onClick={() => setIsFullscreen(false)}
           >
             {/* Bouton fermer */}
             <button
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200"
               onClick={() => setIsFullscreen(false)}
-              className="absolute top-4 right-4 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-colors duration-200"
             >
-              <FaTimes className="text-white text-xl" />
+              <FaTimes className="text-2xl" />
             </button>
 
             {/* Navigation */}
             <button
-              onClick={previousImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-full transition-colors duration-200"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200"
+              onClick={(e) => { e.stopPropagation(); previousImage(); }}
             >
-              <FaChevronLeft className="text-white text-xl" />
+              <FaChevronLeft className="text-3xl" />
             </button>
 
             <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-4 rounded-full transition-colors duration-200"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200"
+              onClick={(e) => { e.stopPropagation(); nextImage(); }}
             >
-              <FaChevronRight className="text-white text-xl" />
+              <FaChevronRight className="text-3xl" />
             </button>
 
-            {/* Container de l'image */}
-            <motion.div
-              key={fullscreenIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full h-full max-w-7xl max-h-[90vh] mx-4"
-            >
+            {/* Image */}
+            <div className="relative w-full h-full max-w-6xl max-h-[85vh] mx-4" onClick={(e) => e.stopPropagation()}>
               <Image
                 src={getImagePath(images[fullscreenIndex])}
-                alt={`${villaName} - Image en plein écran`}
+                alt={`${villaName} - Image ${fullscreenIndex + 1}`}
                 fill
-                sizes="100vw"
                 className="object-contain"
-                priority
+                sizes="100vw"
               />
-              
               {/* Indicateur de position */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
                 {fullscreenIndex + 1} / {images.length}
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

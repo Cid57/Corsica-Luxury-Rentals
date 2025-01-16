@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaBed, FaUsers, FaBath, FaArrowLeft, FaChevronRight } from 'react-icons/fa';
 import SearchBlockResults from '@/components/ui/SearchBlockResults';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
@@ -18,24 +19,20 @@ export default function SearchResults() {
   const [filteredVillas, setFilteredVillas] = useState<Villa[]>([]);
 
   useEffect(() => {
-    const location = searchParams.get('location')?.toLowerCase();
-    const guests = Number(searchParams.get('guests')) || 1;
+    const location = searchParams.get('location')?.toLowerCase() || '';
+    const guests = parseInt(searchParams.get('guests') || '0');
     const startDate = searchParams.get('startDate');
     const endDate = searchParams.get('endDate');
 
+    const filteredVillas = villas.filter(villa => {
+      const matchesLocation = location === '' || villa.location.toLowerCase().includes(location);
+      const matchesGuests = guests === 0 || villa.maxGuests >= guests;
+      return matchesLocation && matchesGuests;
+    });
+
     // Ajout d'un délai artificiel pour éviter le chargement trop rapide
     setTimeout(() => {
-      const results = villas.filter(villa => {
-        // Vérifie si la location correspond (insensible à la casse)
-        const locationMatch = !location || villa.location.toLowerCase().includes(location);
-        // Vérifie si la villa peut accueillir le nombre de voyageurs
-        const capacityMatch = villa.maxGuests >= guests;
-        
-        // On peut ajouter d'autres critères ici si nécessaire
-        return locationMatch && capacityMatch;
-      });
-
-      setFilteredVillas(results);
+      setFilteredVillas(filteredVillas);
       setIsLoading(false);
     }, 1000);
   }, [searchParams]);
@@ -126,7 +123,7 @@ export default function SearchResults() {
                 >
                   <div className="relative h-64">
                     <Image
-                      src={villa.images[0]}
+                      src={getImagePath(villa.images[0])}
                       alt={villa.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
