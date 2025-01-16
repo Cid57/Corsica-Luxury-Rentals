@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { Providers } from '@/app/providers';
@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
+const playfair = Playfair_Display({ subsets: ['latin'] });
 
 const ChatWindow = dynamic(() => import('@/components/chat/ChatWindow'), {
   ssr: false,
@@ -23,13 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className={playfair.className} suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <Providers>
-          <Navbar />
-          {children}
-          <ChatWindow />
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <ChatWindow />
+          </div>
         </Providers>
       </body>
     </html>

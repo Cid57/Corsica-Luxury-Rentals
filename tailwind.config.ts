@@ -17,22 +17,21 @@ const config: Config = {
           'black-light': '#2A2A2A',
           'off-white': '#F5F5F5',
           'cream': '#FDFBF7',
-        },
-        'luxury-cream': '#FDFBF7',
-        'luxury-gold': '#D4AF37',
-        'luxury-black': '#1A1A1A',
+        }
       },
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
-        'poppins': ['Poppins', 'sans-serif'],
+        'serif': ['Playfair Display', 'serif'],
+        'sans': ['Inter', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 
 export default config

@@ -28,39 +28,19 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-colors duration-200;
+  }
+  
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+    @apply bg-luxury-gold text-white hover:bg-luxury-gold-dark;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+    @apply bg-white text-luxury-black border-luxury-gold hover:bg-luxury-cream;
   }
-}
 
-/* React Day Picker Styles */
-.rdp {
-  --rdp-cell-size: 40px;
-  --rdp-accent-color: #b8860b;
-  --rdp-background-color: #e5e7eb;
-  --rdp-accent-color-dark: #8b6508;
-  --rdp-background-color-dark: #334155;
-  --rdp-outline: 2px solid var(--rdp-accent-color);
-  --rdp-outline-selected: 2px solid var(--rdp-accent-color);
-  margin: 1em;
-}
-
-.rdp-day_selected:not([disabled]),
-.rdp-day_selected:focus:not([disabled]),
-.rdp-day_selected:active:not([disabled]),
-.rdp-day_selected:hover:not([disabled]) {
-  background-color: var(--rdp-accent-color);
-  color: white;
-}
-
-.rdp-day_selected:hover:not([disabled]) {
-  background-color: var(--rdp-accent-color-dark);
-}
-
-.rdp-day:hover:not([disabled]) {
-  background-color: var(--rdp-background-color);
+  .input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-luxury-gold focus:ring-luxury-gold;
+  }
 }

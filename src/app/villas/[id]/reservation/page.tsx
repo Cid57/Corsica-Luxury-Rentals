@@ -1,3 +1,5 @@
+'use client';
+
 import { villas } from '@/data/villas';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -6,18 +8,11 @@ import { BsWifi, BsHouseDoor } from 'react-icons/bs';
 import ReservationNavigation from '@/components/villa/ReservationNavigation';
 import BookingFormWrapper from '@/components/villa/BookingFormWrapper';
 import AmenitiesList from '@/components/villa/AmenitiesList';
-import { getImagePath } from '@/utils/getImagePath';
 
 interface PageProps {
   params: {
     id: string;
   };
-}
-
-export async function generateStaticParams() {
-  return villas.map((villa) => ({
-    id: villa.id,
-  }));
 }
 
 export default function Page({ params }: PageProps) {
@@ -27,9 +22,6 @@ export default function Page({ params }: PageProps) {
     notFound();
   }
 
-  const defaultImage = getImagePath('/images/default-villa.jpg'); 
-  const villaImage = villa.images && villa.images.length > 0 ? villa.images[0] : defaultImage;
-
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <ReservationNavigation />
@@ -37,11 +29,12 @@ export default function Page({ params }: PageProps) {
       {/* Hero Section réduite */}
       <div className="relative h-[35vh] w-full">
         <Image
-          src={villaImage}
+          src={villa.images[0]}
           alt={villa.name}
           fill
           className="object-cover"
           priority
+          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
         <div className="absolute bottom-0 left-0 right-0 p-6">
