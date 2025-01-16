@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaExpand, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { getImagePath } from '@/utils/imagePath';
 
 interface ImageGalleryProps {
   images: string[];
@@ -13,10 +14,6 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images, villaName }: ImageGalleryProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenIndex, setFullscreenIndex] = useState(0);
-
-  const getImagePath = (path: string) => {
-    return `${process.env.NODE_ENV === 'production' ? '/Corsica-Luxury-Rentals' : ''}${path}`;
-  };
 
   const nextImage = useCallback(() => {
     setFullscreenIndex((prev) => (prev + 1) % images.length);
