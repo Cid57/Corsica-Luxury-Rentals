@@ -2,14 +2,17 @@
 
 import { villas } from '@/data/villas';
 import VillaCard from '@/components/villa/VillaCard';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function VillasPage() {
+  const bgImage = getImagePath('images/porto-vecchio-1.jpg');
+  
   return (
     <main className="min-h-screen bg-gray-50/50">
       {/* Hero Section */}
-      <section className="relative h-[40vh] bg-[url('/images/porto-vecchio-1.jpg')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 flex items-center justify-center text-center">
+      <section className="relative h-[40vh]" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 flex items-center justify-center text-center pt-20">
           <div className="space-y-4 px-4">
             <h1 className="text-4xl md:text-5xl font-serif text-white">
               Nos Villas d'Exception

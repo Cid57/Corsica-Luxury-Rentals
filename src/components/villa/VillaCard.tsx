@@ -4,6 +4,7 @@ import { Villa } from '@/types/villa';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBed, FaBath, FaUsers } from 'react-icons/fa';
+import { getImagePath } from '@/utils/imagePath';
 
 interface VillaCardProps {
   villa: Villa;
@@ -20,7 +21,7 @@ export default function VillaCard({ villa }: VillaCardProps) {
             </div>
           </div>
           <Image
-            src={villa.images[0]}
+            src={getImagePath(villa.images[0])}
             alt={villa.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
