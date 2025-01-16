@@ -11,7 +11,8 @@ export const villas: Villa[] = [
     pricePerNight: 950,
     images: [
       `${basePath}/images/bonifacio-1.jpg`,
-      `${basePath}/images/house-1.jpg`
+      `${basePath}/images/house-1.jpg`,
+      `${basePath}/images/bonifacio-2.jpg`
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -28,7 +29,8 @@ export const villas: Villa[] = [
     pricePerNight: 1200,
     images: [
       `${basePath}/images/porto-vecchio-1.jpg`,
-      `${basePath}/images/porto-vecchio-2.jpg`
+      `${basePath}/images/porto-vecchio-2.jpg`,
+      `${basePath}/images/house-2.jpg`
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -45,7 +47,8 @@ export const villas: Villa[] = [
     pricePerNight: 1100,
     images: [
       `${basePath}/images/house-1.jpg`,
-      `${basePath}/images/house-2.jpg`
+      `${basePath}/images/house-2.jpg`,
+      `${basePath}/images/bonifacio-3.jpg`
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -62,7 +65,8 @@ export const villas: Villa[] = [
     pricePerNight: 850,
     images: [
       `${basePath}/images/house-2.jpg`,
-      `${basePath}/images/house-3.jpg`
+      `${basePath}/images/house-3.jpg`,
+      `${basePath}/images/porto-vecchio-3.jpg`
     ],
     bedrooms: 2,
     bathrooms: 2,
@@ -79,7 +83,8 @@ export const villas: Villa[] = [
     pricePerNight: 980,
     images: [
       `${basePath}/images/marina.jpg`,
-      `${basePath}/images/house-1.jpg`
+      `${basePath}/images/house-1.jpg`,
+      `${basePath}/images/bonifacio-4.jpg`
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -96,7 +101,8 @@ export const villas: Villa[] = [
     pricePerNight: 1300,
     images: [
       `${basePath}/images/house-1.jpg`,
-      `${basePath}/images/house-2.jpg`
+      `${basePath}/images/house-2.jpg`,
+      `${basePath}/images/calvi-1.jpg`
     ],
     bedrooms: 5,
     bathrooms: 4,
@@ -113,7 +119,8 @@ export const villas: Villa[] = [
     pricePerNight: 890,
     images: [
       `${basePath}/images/Saint-florent.jpg`,
-      `${basePath}/images/house-3.jpg`
+      `${basePath}/images/house-3.jpg`,
+      `${basePath}/images/saint-florent-1.jpg`
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -130,7 +137,8 @@ export const villas: Villa[] = [
     pricePerNight: 1400,
     images: [
       `${basePath}/images/porto-vecchio-2.jpg`,
-      `${basePath}/images/house-1.jpg`
+      `${basePath}/images/house-1.jpg`,
+      `${basePath}/images/palombaggia-1.jpg`
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -147,7 +155,8 @@ export const villas: Villa[] = [
     pricePerNight: 1600,
     images: [
       `${basePath}/images/house-1.jpg`,
-      `${basePath}/images/house-2.jpg`
+      `${basePath}/images/house-2.jpg`,
+      `${basePath}/images/ajaccio-1.jpg`
     ],
     bedrooms: 6,
     bathrooms: 5,
@@ -164,7 +173,8 @@ export const villas: Villa[] = [
     pricePerNight: 1150,
     images: [
       `${basePath}/images/house-2.jpg`,
-      `${basePath}/images/house-3.jpg`
+      `${basePath}/images/house-3.jpg`,
+      `${basePath}/images/ile-rousse-1.jpg`
     ],
     bedrooms: 4,
     bathrooms: 3,
@@ -181,7 +191,8 @@ export const villas: Villa[] = [
     pricePerNight: 980,
     images: [
       `${basePath}/images/house-3.jpg`,
-      `${basePath}/images/house-1.jpg`
+      `${basePath}/images/house-1.jpg`,
+      `${basePath}/images/bastia-1.jpg`
     ],
     bedrooms: 3,
     bathrooms: 2,
@@ -198,7 +209,8 @@ export const villas: Villa[] = [
     pricePerNight: 1100,
     images: [
       `${basePath}/images/house-1.jpg`,
-      `${basePath}/images/house-2.jpg`
+      `${basePath}/images/house-2.jpg`,
+      `${basePath}/images/propriano-1.jpg`
     ],
     bedrooms: 4,
     bathrooms: 3,
